@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
   end
   def create
     @article = Article.new(article_params)
+    @article.user = User.last
     if @article.save
       #do something
       flash[:success] = "Successfully created"
